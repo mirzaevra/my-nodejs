@@ -1,0 +1,30 @@
+{
+  "name": "my-nodejs",
+  "version": "1.0.0",
+  "description": "crm angular + nodejs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "server": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mirzaevra/my-nodejs.git"
+  },
+  "author": "Mirzaev Rustam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mirzaevra/my-nodejs/issues"
+  },
+  "homepage": "https://github.com/mirzaevra/my-nodejs#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.9",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
