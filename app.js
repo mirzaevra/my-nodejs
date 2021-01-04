@@ -11,20 +11,6 @@ const positionRoutes = require('./routes/position');
 const keys = require('./config/keys');
 const app = express();
 
-// mongoose.connect(keys.mongoURI,
-//     {
-//         useNewUrlParser: true,
-//         useUnifiedTopology: true,
-//         useCreateIndex: true
-//     },
-//     (err) => {
-//         if (err) {
-//             console.log('Some problem with the connection ' + err);
-//         } else {
-//             console.log('The Mongoose connection is ready');
-//         }
-//     });
-
 async function start() {
     try {
         await mongoose.connect(keys.mongoURI,
@@ -38,6 +24,7 @@ async function start() {
         process.exit(1);
     }
 }
+
 start();
 
 app.use(morgan('dev'));
