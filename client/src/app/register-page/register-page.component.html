@@ -1,16 +1,56 @@
-<div class="card">
+<form
+  [formGroup]="form"
+  (ngSubmit)="onSubmit()"
+  autocomplete="off"
+  class="card">
   <div class="card-content">
     <span class="card-title">Создать аккаунт</span>
     <div class="input-field">
-      <input id="email" type="email" required>
+      <input
+        formControlName="email"
+        autocomplete="off"
+        id="email"
+        type="email"
+        name="email"
+        [ngClass]="{'invalid': form.get('email').invalid && form.get('email').touched}"
+      >
       <label for="email">Email:</label>
+      <span
+        *ngIf="form.get('email').invalid && form.get('email').touched"
+        class="helper-text red-text">
+        <span *ngIf="form.get('email').errors['required']">Обязательное поле</span>
+        <span *ngIf="form.get('email').errors['email']">Укажите валидный email</span>
+      </span>
     </div>
     <div class="input-field">
-      <input id="password" type="password" required>
+      <input
+        formControlName="password"
+        autocomplete="off"
+        id="password"
+        type="password"
+        name="password"
+        [ngClass]="{'invalid': form.get('password').invalid && form.get('email').touched}"
+      >
       <label for="password">Пароль:</label>
+      <span
+        *ngIf="form.get('password').invalid && form.get('email').touched"
+        class="helper-text red-text">
+        <span *ngIf="form.get('password').errors['required']">Обязательное поле</span>
+        <span *ngIf="form.get('password').errors['minlength']
+        && form.get('password').errors['minlength']['requiredLength']"
+        >
+          Пароль должен быть больше {{form.get('password').errors['minlength']['requiredLength']}} символов.
+          Сейчас введено {{form.get('password').errors['minlength']['actualLength']}}
+        </span>
+      </span>
     </div>
   </div>
   <div class="card-action">
-    <button class="modal-action btn waves-effect">Создать</button>
+    <button
+      [disabled]="form.invalid || form.disabled"
+      type="submit"
+      class="modal-action btn waves-effect"
+    >Создать
+    </button>
   </div>
-</div>
+</form>
