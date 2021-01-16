@@ -34,16 +34,16 @@ export class AuthService {
     return this.token;
   }
 
-  public iaAuthenticated(): boolean {
+  public setToken(token: string): void {
+    this.token = token;
+  }
+
+  public isAuthenticated(): boolean {
     return !!this.token;
   }
 
   public logout(): void {
     this.setToken('');
     localStorage.clear();
-  }
-
-  private setToken(token: string): void {
-    this.token = token;
   }
 }
