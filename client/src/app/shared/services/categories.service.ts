@@ -13,7 +13,11 @@ export class CategoriesService {
   ) {
   }
 
-  getAllCategories(): Observable<ICategory[]> {
+  public getAllCategories(): Observable<ICategory[]> {
     return this.httpService.get<ICategory[]>('/api/category');
+  }
+
+  public getCategoryById(id: string): Observable<ICategory> {
+    return this.httpService.get<ICategory>(`/api/category/${id}`);
   }
 }
